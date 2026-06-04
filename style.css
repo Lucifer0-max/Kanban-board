@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100% 
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+}
+:root{
+    /* background color */
+    --bg-color:#0e0d0d;
+    --bg-section-color:#211f1f;
+    --bg-btn:#222121;
+    --bg-task:#2f2e2e;
+
+    --bg-delete:#f43a3a;
+
+    --primary-text-color:#f4f2f2;
+
+    /* padding variables */
+    --padding-xs: 4px;
+    --padding-s: 8px;
+    --padding-md: 12px;
+    --padding-lg: 16px;
+    --padding-xl: 20px;
+    --padding-2xl: 40px;
+    --padding-3xl: 48px;
+
+    /* border radius */
+    --border-radius-s: 5px;
+    --border-radius-m: 10px;
+    --border-radius-lg: 15px;
+    --border-radius-xl: 20px;
+    --border-radius-2xl: 25px;
+
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-xl);
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+}
+
+nav button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: var(--padding-md) var(--padding-lg);
+    border-radius: var(--border-radius-m);
+    background-color: var(--bg-btn);
+    color: var(--primary-text-color);
+}
+
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+section{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: var(--padding-xl);
+    color: var(--primary-text-color);
+    gap: var(--padding-xl);
+}
+
+section .task-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: var(--bg-btn);
+    border-radius: var(--border-radius-m);
+    padding: var(--padding-md);
+    gap: var(--padding-s);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+section .task-box.hover-over {
+    border: 2px dashed var(--primary-text-color);
+    scale: 1.05;
+}
+
+
+section .task-box .heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-md);
+}
+
+section .task-box .task{
+    padding: var(--padding-md);
+    background-color: var(--bg-task);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s);
+    cursor: grab;
+}
+
+section .task-box .task button{
+    align-self: flex-end;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-md);
+    border-radius: var(--border-radius-s);
+    background-color: var(--bg-delete);
+    color: var(--primary-text-color);
+}
+
+.modal{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active{
+    display: flex;
+}
+
+.modal .bg{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color:rgba(66, 66, 66,0.404);
+    backdrop-filter: blur(5px);
+}
+
+.modal .center{
+    background-color: var(--bg-section-color);
+    padding: var(--padding-2xl);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap:var(--padding-md);
+    z-index: 10;
+}
+
+.modal .center input,
+ .modal .center textarea,
+ .modal .center select{
+    background-color: var(--bg-task);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-s);
+}
+
+.modal .center button{
+    background-color: var(--bg-task);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-md) var(--padding-lg);
+    cursor: pointer;
+    border-radius: var(--border-radius-s);
+    width: fit-content;
+    align-self: center;
+}
